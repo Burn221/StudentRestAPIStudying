@@ -1,18 +1,12 @@
 package ru.kor.springstudent.impl;
 
 import lombok.AllArgsConstructor;
-import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Service;
 import ru.kor.springstudent.model.Student;
 import ru.kor.springstudent.repository.StudentRepository;
 import ru.kor.springstudent.service.StudentService;
 
 import java.util.List;
-import java.util.Optional;
-
-@Service
 @AllArgsConstructor
-@Primary
 public class StudentServiceImpl implements StudentService {
 
     private final StudentRepository repository;
@@ -24,7 +18,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student updateStudent(Student student) {
-        return repository.save(student) ;
+        return repository.save(student);
     }
 
     @Override
@@ -39,7 +33,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Optional<Student> findStudentByEmail(String email) {
+    public Student findStudentByEmail(String email) {
         return repository.findByEmail(email);
     }
 }
